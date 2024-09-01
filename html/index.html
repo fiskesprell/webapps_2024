@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jørgen's Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+</head>
+<!-- Header starts here -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="#">Add Project</a></li>
+            <li><h1>Jørgen Hovet's Portfolio</h1></li>
+            <li><a href="#">My Projects</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- Body starts here -->
+<body>
+    <div id="projectsFormDiv">
+        <form id="projectsForm">
+            <label for="projectTitle">Title</label>
+            <input type="text" id="projectTitle" placeholder="My newest project" required>
+            <label for="projectDescription">Description</label>
+            <textarea id="projectDescription" placeholder="This project was created in... and aims to.." required></textarea>
+            <div>
+                <div id="projectsFormLeftSide">
+                    <label for="projectRepoLink">Link to repository</label>
+                    <input type="text" id="projectRepoLink" placeholder="http://github.com/fiskesprell/my-project" required>
+                    <!-- Todo: change this to 'upload image' instead. -->
+                    <label for="projectImageLink">Link to image</label>
+                    <input type="text" id="projectImageLink" placeholder="http://imgur.com/image/my-image.jpg">
+                </div>
+                <div id="projectsFormRightSide"></div>
+                    <button type="submit" id="projectsFormSubmitBtn">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Article under here would be created by JavaScript / TypeScript -->
+    <article>
+        <div class="articleDiv">
+            <div class="articleImage">
+                <img src="../images/placeholder.png" alt="White cross with the text Placeholder above it.">
+            </div>
+            <div class="articleData">
+                <h2>Placeholder Title</h2>
+                <p>Placeholder Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur, eveniet explicabo ratione quae voluptatum </p>
+                <a href="#">Link to repository</a>
+            </div>
+        </div>
+    </article>
+    <!-- Test article for styling purposes - delete later. -->
+</body>
+<!-- Footer starts here -->
+<footer>
+    <ul>
+        <li><p>Copyright: Jørgen Hovet 2024-2024</p></li>
+        <li><p>Contact: jorgeho@hiof.no</p></li>
+    </ul>
+</footer>
+</html>
