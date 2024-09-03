@@ -3,6 +3,8 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { readFile } from "node:fs/promises";
+import { ProjectSchema } from "./types.ts"
+import type { Project } from "./types";
 
 const app = new Hono();
 
@@ -29,3 +31,17 @@ serve({
 
 // Oppgave 10 a
 
+const projects: Project[] = [];
+
+app.post("/add", async (c) => {
+    const newProject = await c.req.json();
+    // Validerer at dataen vi mottar er en gyldig Habit
+    const project = ProjectSchema.parse(newProject);
+    // Sjekker om habit er en gyldig Habit, og returnerer en feilmelding hvis ikke
+    if (!project) return c.json({ error: "Invalid project" }, { status: 400 });
+    console.log(project);
+    projects.push(project);
+  
+    // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
+    return c.json<Project[]>(projects, { status: 201 });
+  });
