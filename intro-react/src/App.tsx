@@ -1,16 +1,23 @@
+import './styles/style.css'
 import Header from './components/Header'
 import Experiences from './components/Experiences'
+import About from './components/About'
 import Contact from './components/Contact'
-import { ExperienceProps, ProjectProps } from './types/types'
+import { ExperienceProps, PersonalInfo, ProjectProps } from './types/types'
 import Projects from './components/Projects'
+import Footer from './components/Footer'
 
 
 function App() {
   // Test data
-  const student = 'Halgeir Geirson'
-  const degree = 'Bachelor IT'
-  const points = 180
-  const email = 'student@hiof.no'
+
+  let personalInfo: PersonalInfo = {
+      name: 'Jørgen Hovet',
+      contactEmail: 'jorgeho@hiof.no',
+      degree: 'Bachelor IT',
+      points: '120',
+      personalImageLink: 'src/images/profilePicture.png'
+  }
 
   let listOfExperiences: ExperienceProps[] = [
     {
@@ -36,18 +43,21 @@ function App() {
     },
     {
       title: "Secret Project",
-      description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even.",
+      description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even. YEAH I LOVE IT SO MUCH I HAVE TO WRITE EVEN MORE TEXT ABOUT IT TO SEE IT!! WOW!!! SO GOOD!!!!!",
       repoLink: "http://www.duckduckgo.com",
     }
   ]
 
   return (
-    <div>
-      <Header student={student} degree={degree} points={points} />
-      <Experiences listOfExperiences={listOfExperiences} />
-      <Contact email={email} />
-      <Projects listOfProjects={listOfProjects} />
-    </div>
+    <>
+      <Header name={personalInfo.name}/>
+      <main>
+        <About personalInfo={personalInfo} listOfExperiences={listOfExperiences}/>
+        {/*<Contact email={personalInfo.contactEmail} /> */}
+        <Projects listOfProjects={listOfProjects} />
+      </main>
+      <Footer contactEmail={personalInfo.contactEmail}/>
+    </>
   )
 }
 

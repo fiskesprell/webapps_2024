@@ -1,19 +1,23 @@
 // Importer Style
 // import './styles/grid.css';
 
-type HeaderProps = {
-    student: string,
-    degree: string,
-    points: number
-};
+import { PersonalInfo } from "../types/types";
 
-export default function Student(props: AvatarProps) {
-    const { student = "student", degree = "degree", points = "points" } = props;
+interface HeaderProps {
+    name: string,
+  }
 
+export default function Student(props: HeaderProps) {
+    const { name = "name" } = props;
     return(
-        <div className="headerClass">
-            <h1>{student}</h1>
-            <p>{degree} {points} studiepoeng </p>
-        </div>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">Add Project</a></li>
+                    <li><h1>{name}'s Portfolio</h1></li>
+                    <li><a href="#">My Projects</a></li>
+                </ul>
+            </nav>
+        </header>
     );
 }
