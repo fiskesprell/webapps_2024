@@ -3,3 +3,8 @@ export type ProjectProps = {
     description: string,
     repoLink: string,
 };
+
+export type ExperienceProps = {
+    id: string,
+    description : string,
+};

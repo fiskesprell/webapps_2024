@@ -1,16 +1,26 @@
 import Header from './components/Header'
 import Experiences from './components/Experiences'
 import Contact from './components/Contact'
-import { ProjectProps } from './types/types'
+import { ExperienceProps, ProjectProps } from './types/types'
 import Projects from './components/Projects'
+
 
 function App() {
   // Test data
   const student = 'Halgeir Geirson'
   const degree = 'Bachelor IT'
   const points = 180
-  const experienceOne = 'Figma UI for customer X'
-  const experienceTwo = 'Website for customer Y'
+
+  let listOfExperiences: ExperienceProps[] = [
+    {
+      id: "experience_1",
+      description: 'Figma UI for customer X'
+    },
+    {
+      id: "experience_2",
+      description: 'Website for customer Y'
+    }
+  ]
   const email = 'student@hiof.no'
   let demoProjectOne: ProjectProps
   demoProjectOne = {
@@ -29,7 +39,7 @@ function App() {
   return (
     <div>
       <Header student={student} degree={degree} points={points} />
-      <Experiences experienceOne={experienceOne} experienceTwo={experienceTwo} />
+      <Experiences listOfExperiences={listOfExperiences} />
       <Contact email={email} />
       <Projects projectOne={demoProjectOne} projectTwo={demoProjectTwo} />
     </div>

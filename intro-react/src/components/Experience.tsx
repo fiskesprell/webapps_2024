@@ -2,16 +2,13 @@
 // import './styles/grid.css';
 
 import type { PropsWithChildren } from "react";
+import type { ExperienceProps } from "../types/types";
 
-type ExperienceProps = {
-    description : string,
-};
-
-export default function Student(props: Readonly<PropsWithChildren<ExperienceProps>>) {
-    const { children, description = "description" } = props;
+export default function Experience(props: Readonly<PropsWithChildren<ExperienceProps>[]>) {
+    const { children, description = "description", id="id" } = props;
 
     return(
-        <div className="singleExperience">
+        <div key={id} className="singleExperience">
             <p>{description}</p>
             {children}
         </div>
