@@ -10,6 +10,7 @@ function App() {
   const student = 'Halgeir Geirson'
   const degree = 'Bachelor IT'
   const points = 180
+  const email = 'student@hiof.no'
 
   let listOfExperiences: ExperienceProps[] = [
     {
@@ -21,27 +22,31 @@ function App() {
       description: 'Website for customer Y'
     }
   ]
-  const email = 'student@hiof.no'
-  let demoProjectOne: ProjectProps
-  demoProjectOne = {
-    title: "Personal Website",
-    description: "Personal website made for website week 2020",
-    repoLink: "http://www.duckduckgo.com",
-  }
-  let demoProjectTwo: ProjectProps
-  demoProjectTwo = {
-    title: "SuperGame",
-    description: "Game made for coolmathgames gamejam '24",
-    repoLink: "http://www.duckduckgo.com",
-  }
-
+  
+  let listOfProjects: ProjectProps[] = [
+    {
+      title: "Personal Website",
+      description: "Personal website made for website week 2020",
+      repoLink: "http://www.duckduckgo.com",
+    },
+    {
+      title: "SuperGame",
+      description: "Game made for coolmathgames gamejam '24",
+      repoLink: "http://www.duckduckgo.com",
+    },
+    {
+      title: "Secret Project",
+      description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even.",
+      repoLink: "http://www.duckduckgo.com",
+    }
+  ]
 
   return (
     <div>
       <Header student={student} degree={degree} points={points} />
       <Experiences listOfExperiences={listOfExperiences} />
       <Contact email={email} />
-      <Projects projectOne={demoProjectOne} projectTwo={demoProjectTwo} />
+      <Projects listOfProjects={listOfProjects} />
     </div>
   )
 }

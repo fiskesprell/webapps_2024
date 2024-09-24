@@ -4,7 +4,7 @@ import Experience from './Experience'
 import { ExperienceProps } from '../types/types'
 
 interface ExperiencesProps {
-  listOfExperiences: ExperienceProps[];
+  listOfExperiences: ExperienceProps[],
 }
 
 

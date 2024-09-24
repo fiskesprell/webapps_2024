@@ -4,18 +4,19 @@ import Project from './Project'
 import { ProjectProps } from '../types/types'
 
 type ProjectsProps = {
-    projectOne : ProjectProps,
-    projectTwo : ProjectProps,
+  listOfProjects: ProjectProps[],
 };
 
 // evt. state av experience må være her
 
 
-export default function Projects({ projectOne, projectTwo }: ProjectsProps) {
+export default function Projects(props: ProjectsProps) {
+    const { listOfProjects = "listOfProjects" } = props;
     return (
-      <div>
-            <Project title={projectOne.title} description={projectOne.description} repoLink={projectOne.repoLink} />
-            <Project title={projectTwo.title} description={projectTwo.description} repoLink={projectTwo.repoLink} />
+      <div className="projectsWrapper">
+        {listOfProjects.map((project) => (
+          <Project title={project.title} description={project.description} repoLink={project.repoLink} />
+        ))}
       </div>
     )
   }
