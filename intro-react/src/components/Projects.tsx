@@ -8,6 +8,8 @@ type ProjectsProps = {
     projectTwo : ProjectProps,
 };
 
+// evt. state av experience må være her
+
 
 export default function Projects({ projectOne, projectTwo }: ProjectsProps) {
     return (
