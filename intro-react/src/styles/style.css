@@ -86,49 +86,22 @@ main{
 body{
     margin: 0;
 
-    #projectsFormDiv{
-        display: flex;
-        justify-content: center;
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 50rem;
-            margin: 3rem;
+    .noProjectsArticle{
+        p{
+            font-family: "Open Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            color: var(--beige);
             padding: 1rem;
-            background-color: var(--light_gray_bg);
-
-            #projectTitle{
-                max-width: 49rem;
-                min-width: 49rem;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-            #projectDescription{
-                min-height: 5rem;
-                max-width: 49rem;
-                min-width: 49rem;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-
-            div{
-                display: flex;
-                #projectsFormLeftSide{
-                    display: flex;
-                    flex-direction: column;
-                    #projectRepoLink{
-                        width: 35rem;
-                        margin-bottom: 0.5rem;
-                    }
-                    #projectImageLink{
-                        width: 35rem;
-                        margin-bottom: 0.5rem;
-                    }
-                }
-            }
+            width: 30rem;
+            padding: 2rem;
+            background-color: var(--red);
         }
+        
     }
+
     #projectsFormSubmitBtn{
         width: 13rem;
         height: 4.5rem;
@@ -152,6 +125,22 @@ body{
             width: 10rem;
             padding: 1rem;
         }
+
+        button{
+            background-color: var(--dark_blue);
+            color: var(--beige);
+            margin: 1rem;
+            
+            
+            font-family: "Open Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            font-size: 18px;
+            
+        }
+
         .articleDataDiv{
             display:flex;
             flex-direction: column;
@@ -268,7 +257,7 @@ aside{
 }
 
 
-.contactClass{
+.contactClass, .createProjectSection{
     display: flex;
     flex-direction: column;
     background-color: var(--red);
@@ -276,7 +265,6 @@ aside{
     margin: 5rem;
     padding: 1rem;
     align-self: flex-start;
-    padding-bottom: 70px;
     width: 25rem;
 
     pre {

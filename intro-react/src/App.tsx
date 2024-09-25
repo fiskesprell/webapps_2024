@@ -1,12 +1,12 @@
 import './styles/style.css'
 import Header from './components/Header'
-import Experiences from './components/Experiences'
 import About from './components/About'
 import Contact from './components/Contact'
 import { ExperienceProps, PersonalInfo, ProjectProps } from './types/types'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
 import { useState } from 'react'
+import CreateProject from './components/CreateProject'
 
 
 function App() {
@@ -33,30 +33,26 @@ function App() {
   
   let listOfProjects: ProjectProps[] = [
     {
-      id: "project_1",
+      id: crypto.randomUUID(),
       title: "Personal Website",
       description: "Personal website made for website week 2020",
       repoLink: "http://www.duckduckgo.com",
     },
     {
-      id: "project_2",
+      id: crypto.randomUUID(),
       title: "SuperGame",
       description: "Game made for coolmathgames gamejam '24",
       repoLink: "http://www.duckduckgo.com",
     },
     {
-      id: "project_3",
+      id: crypto.randomUUID(),
       title: "Secret Project",
       description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even. YEAH I LOVE IT SO MUCH I HAVE TO WRITE EVEN MORE TEXT ABOUT IT TO SEE IT!! WOW!!! SO GOOD!!!!!",
       repoLink: "http://www.duckduckgo.com",
     },
-    {
-      id: "project_4",
-      title: "KDA Gragas",
-      description: "Man I love KDA Gragas. Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba!",
-      repoLink: "http://www.duckduckgo.com",
-    }
   ]
+
+  const [projectsList, setProjectsList] = useState<ProjectProps[]>(listOfProjects);
 
   // Functions
   function showEmailButton(){
@@ -69,18 +65,19 @@ function App() {
   function contactForm(){
     const [name, setName] = useState<string>('');
     const [textarea, setTextarea] = useState<string>('');
-    const [nameValid, setNameValid] = useState(false);
-    const [nameIsDirty, setNameIsDirty] = useState(false);
-    const [nameIsTouched, setNameIsTouched] = useState(false);
-    const [textareaValid, setTextareaValid] = useState(false);
-    const [textareaIsDirty, setTextareaIsDirty] = useState(false);
-    const [textareaIsTouched, setTextareaIsTouched] = useState(false);
+    const [formError, setFormError] = useState(false); 
 
-    const handleSubmit = (event: React.FormEvent) => {
-      event.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (name.length > 2 && textarea.length > 2) {
       setName('');
       setTextarea('');
+      setFormError(false);
+    } else {
+      setFormError(true);
     }
+  };
 
     const updateName = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
     const updateTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => setTextarea(e.target.value);
@@ -89,8 +86,8 @@ function App() {
       <>
         <h2>Send meg melding</h2>
         <form onSubmit={handleSubmit}>
-
-          <label htmlFor="name"> Ditt Navn:
+          {formError && <p style={{ color: 'yellow' }}>*Både navn og text må være mer enn 2 tegn langt.</p>}
+            <label htmlFor="name"> Ditt Navn:
             <input id="name" name="name" type="text" value={name} onChange={updateName}/>
           </label>
           <label htmlFor="textarea"> Din melding:
@@ -109,14 +106,79 @@ function App() {
     );
   };
 
+  function projectForm(){
+    const [formError, setFormError] = useState(false);
+    const [projectTitle, setProjectTitle] = useState<string>('');
+    const [projectDescription, setProjectDescription] = useState<string>('');
+    const [projectRepoLink, setProjectRepoLink] = useState<string>('');
+    // const [projectImageLink, setProjectImageLink] = useState<string>('');
+
+    const handleSubmit = (event: React.FormEvent) => {
+      event.preventDefault();
+      if (projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3) {
+        // Create and add object to list
+        let projectToAddToList: ProjectProps = {
+          id: crypto.randomUUID(),
+          title: projectTitle,
+          description: projectDescription,
+          repoLink: projectRepoLink,
+        }
+
+        setProjectsList([...projectsList, projectToAddToList]);
+
+        {/* Then reset fields */}
+        setProjectTitle('');
+        setProjectDescription('');
+        setProjectRepoLink('')
+        // setProjectImageLink('')
+        setFormError(false);
+      } else {
+        setFormError(true);
+      }
+    };
+
+    const updateProjectTitle = (e: React.ChangeEvent<HTMLInputElement>) => setProjectTitle(e.target.value);
+    const updateProjectDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => setProjectDescription(e.target.value);
+    const updateProjectRepoLink = (e: React.ChangeEvent<HTMLInputElement>) => setProjectRepoLink(e.target.value);
+    // const updateProjectImageLink = (e: React.ChangeEvent<HTMLInputElement>) => setProjectImageLink(e.target.value);
+
+
+    return(
+      <>
+        <h2>Legg til prosjekt</h2>
+        <div id="projectsFormDiv">
+          <form id="projectsForm" onSubmit={handleSubmit}>
+            {/* Error om felt ikke er fyllt inn */}
+            {formError && <p style={{ color: 'yellow' }}>*Alle felt må være fyllt med mer enn 3 tegn.</p>}
+            {/* Form starter her */}
+            <label htmlFor="projectTitle">Tittel på prosjekt:
+              <input id="projectTitle" name="projectTitle" type="text" value={projectTitle} onChange={updateProjectTitle}/>
+            </label>
+
+            <label htmlFor="projectDescription">Projektbeskrivelse:
+            <textarea id="projectDescription" name="projectDescription" value={projectDescription} onChange={updateProjectDescription}/>
+            </label>
+
+            <label htmlFor="projectRepoLink">Repository Lenke:
+              <input id="projectRepoLink" name="projectRepoLink" type="text" value={projectRepoLink} onChange={updateProjectRepoLink}/>
+            </label>
+            <button type="submit">Send melding</button>
+          </form>
+        </div>
+      </>
+    )
+  }
 
   return (
     <>
       <Header name={personalInfo.name}/>
       <main>
         <About personalInfo={personalInfo} listOfExperiences={listOfExperiences} showEmailButton={showEmailButton}/>
-        <Projects listOfProjects={listOfProjects} />
-        <Contact contactForm={contactForm} />
+        <Projects listOfProjects={projectsList} setProjectsList={setProjectsList} />
+        <div>
+          <Contact contactForm={contactForm} />
+          <CreateProject projectForm={projectForm} />
+        </div>
       </main>
       <Footer showEmailButton={showEmailButton}/>
     </>

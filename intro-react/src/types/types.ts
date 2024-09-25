@@ -1,5 +1,5 @@
 export type ProjectProps = {
-    id: string,
+    id: ReturnType<typeof crypto.randomUUID>,
     title: string,
     description: string,
     repoLink: string,

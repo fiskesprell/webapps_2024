@@ -1,9 +1,10 @@
 // Importer Style
 // import './styles/grid.css';
 import { ProjectProps } from '../types/types'
+import type { PropsWithChildren } from "react";
 
-export default function Student(props: ProjectProps) {
-    const { title="title", description="description", repoLink="repoLink" } = props;
+export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>) {
+    const { children, title="title", description="description", repoLink="repoLink" } = props;
 
     return(
         <article className="projectArticle">
@@ -15,6 +16,7 @@ export default function Student(props: ProjectProps) {
                     <h2>{title}</h2>
                     <p>{description}</p>
                     <a href={repoLink}>Link to Repository</a>
+                    {children}
                 </div>
             </div>
         </article>
