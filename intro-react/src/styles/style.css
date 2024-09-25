@@ -1,17 +1,53 @@
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 :root {
-    --light_gray_bg: rgb(218, 218, 218);
-    --middle_gray_bg: #a1a1a1;
-    --dark_gray_bg: rgb(134, 134, 134);
+    /* Flame theme */
+    --beige: #fbecd7;
+    --red:  #600000;
+    --dark_blue:  #202136;
+    --link-color: #9748a1;
+    --brown:  #1d0404;
+
+    /* recommended css classes by google fonts, copy-paste from here.
+    --pirata-one-regular {
+        font-family: "Pirata One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    --creepster-regular {
+        font-family: "Creepster", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+    
+      .nosifer-regular {
+        font-family: "Nosifer", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+        .open-sans-<uniquifier> {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        }
+
+    */   
   }
 
 header{
     display: flex;
-    background-color: var(--middle_gray_bg);
+    background-color: var(--dark_blue);
     justify-content: center;
     ul{
         display: flex;
         list-style: none;
-        background-color: var(--dark_gray_bg);
         justify-content: center;
         align-items: center;
         padding-left: 0px;
@@ -23,13 +59,16 @@ header{
             a{
                 color: black;
                 padding: 1rem;
-                background-color: var(--light_gray_bg);
+                /* background-color: var(--beige); */
             }
 
             h1{
                 color: black;
-                padding: 1rem;
-                background-color: var(--light_gray_bg);
+                font-family: "Nosifer", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 60px;
+                color: var(--beige);
             }
         }
     }    
@@ -44,6 +83,8 @@ main{
 
 
 body{
+    margin: 0;
+
     #projectsFormDiv{
         display: flex;
         justify-content: center;
@@ -100,7 +141,7 @@ body{
 
         .articleDiv{
             display: flex;
-            background-color: var(--light_gray_bg);
+            background-color: var(--red);
             width: 30rem;
         }
 
@@ -116,6 +157,32 @@ body{
             a{
                 align-self: flex-end;
                 margin: 1rem;
+                color: var(--link-color);
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                font-variation-settings: "wdth" 100;
+                font-size: 18px;
+            }
+
+            h2{
+                color: var(--beige);
+                font-family: "Pirata One", system-ui;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 34px;
+                margin: 1rem;
+            }
+
+            p {
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                font-variation-settings: "wdth" 100;
+                color: var(--beige);
+                padding: 1rem;
             }
         }
     }
@@ -124,23 +191,40 @@ body{
 
 footer{
     display: flex;
-    background-color: var(--middle_gray_bg);
+    background-color: var(--dark_blue);
     justify-content: center;
     ul{
         list-style: none;
         padding-left: 0px;
+    }
+    p {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        color: var(--beige);
     }
 }
 
 aside{
     display: flex;
     flex-direction: column;
-    background-color: var(--middle_gray_bg);
-    margin: 5rem;
+    background-color: var(--red);
     border-radius: 1rem;
+    margin: 5rem;
+    padding: 1rem;
+    align-self: flex-start;
+    padding-bottom: 70px;
 
     h2{
         align-self: center;
+        color: var(--beige);
+        font-family: "Pirata One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+        margin: 1rem;
     }
 
     #aboutProfilePicture{
@@ -156,11 +240,36 @@ aside{
     }
 
     ul{
-        background-color: var(--light_gray_bg);
         list-style: none;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        color: var(--beige);
+
+
         li {
             margin: 0.2rem;
         }
+    }
+
+    p {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        color: var(--beige);
+    }
+
+    a{
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        color: var(--link-color);
     }
 
 }

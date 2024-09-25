@@ -13,9 +13,7 @@ export default function Student(props: HeaderProps) {
         <header>
             <nav>
                 <ul>
-                    <li><a href="#">Add Project</a></li>
                     <li><h1>{name}'s Portfolio</h1></li>
-                    <li><a href="#">My Projects</a></li>
                 </ul>
             </nav>
         </header>

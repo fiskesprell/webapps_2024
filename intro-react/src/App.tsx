@@ -14,7 +14,7 @@ function App() {
   let personalInfo: PersonalInfo = {
       name: 'Jørgen Hovet',
       contactEmail: 'jorgeho@hiof.no',
-      degree: 'Bachelor IT',
+      degree: 'Bachelor Informatikk',
       points: '120',
       personalImageLink: 'src/images/profilePicture.png'
   }
@@ -44,6 +44,11 @@ function App() {
     {
       title: "Secret Project",
       description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even. YEAH I LOVE IT SO MUCH I HAVE TO WRITE EVEN MORE TEXT ABOUT IT TO SEE IT!! WOW!!! SO GOOD!!!!!",
+      repoLink: "http://www.duckduckgo.com",
+    },
+    {
+      title: "KDA Gragas",
+      description: "Man I love KDA Gragas. Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba!",
       repoLink: "http://www.duckduckgo.com",
     }
   ]
