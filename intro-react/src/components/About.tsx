@@ -5,7 +5,7 @@ import Experiences from "./Experiences";
 type AboutProps = {
     personalInfo: PersonalInfo,
     listOfExperiences: ExperienceProps[],
-    showEmailButton: JSX.Element,
+    showEmailButton: () => JSX.Element,
 };
 
 export default function About({ personalInfo, listOfExperiences, showEmailButton }: AboutProps) {

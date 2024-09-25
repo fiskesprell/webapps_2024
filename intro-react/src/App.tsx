@@ -6,6 +6,7 @@ import Contact from './components/Contact'
 import { ExperienceProps, PersonalInfo, ProjectProps } from './types/types'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
+import { useState } from 'react'
 
 
 function App() {
@@ -65,13 +66,57 @@ function App() {
     return <button className="showEmailButton" onClick={handleClick}>Vis e-post?</button>
   }
 
+  function contactForm(){
+    const [name, setName] = useState<string>('');
+    const [textarea, setTextarea] = useState<string>('');
+    const [nameValid, setNameValid] = useState(false);
+    const [nameIsDirty, setNameIsDirty] = useState(false);
+    const [nameIsTouched, setNameIsTouched] = useState(false);
+    const [textareaValid, setTextareaValid] = useState(false);
+    const [textareaIsDirty, setTextareaIsDirty] = useState(false);
+    const [textareaIsTouched, setTextareaIsTouched] = useState(false);
+
+    const handleSubmit = (event: React.FormEvent) => {
+      event.preventDefault();
+      setName('');
+      setTextarea('');
+    }
+
+    const updateName = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+    const updateTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => setTextarea(e.target.value);
+    
+    return (
+      <>
+        <h2>Send meg melding</h2>
+        <form onSubmit={handleSubmit}>
+
+          <label htmlFor="name"> Ditt Navn:
+            <input id="name" name="name" type="text" value={name} onChange={updateName}/>
+          </label>
+          <label htmlFor="textarea"> Din melding:
+            <textarea id="textarea" name="textarea" value={textarea} onChange={updateTextarea}/>
+          </label>
+          <button type="submit">Send melding</button>
+        </form>
+        <h2>Forhåndsvis din melding</h2>
+        <pre>
+          {JSON.stringify({ name })}
+        </pre>
+        <pre>
+          {JSON.stringify({ textarea })}
+        </pre>
+      </>
+    );
+  };
+
+
   return (
     <>
       <Header name={personalInfo.name}/>
       <main>
         <About personalInfo={personalInfo} listOfExperiences={listOfExperiences} showEmailButton={showEmailButton}/>
-        {/*<Contact email={personalInfo.contactEmail} /> */}
         <Projects listOfProjects={listOfProjects} />
+        <Contact contactForm={contactForm} />
       </main>
       <Footer showEmailButton={showEmailButton}/>
     </>

@@ -2,15 +2,14 @@
 // import './styles/grid.css';
 
 type ContactProps = {
-    email: string,
+    contactForm: () => JSX.Element,
 };
 
-export default function Student(props: ContactProps) {
-    const { email = "email" } = props;
+export default function Student( {contactForm } : ContactProps ) {
 
     return(
-        <div className="contactClass">
-            <p>{email}</p>
-        </div>
+        <section className="contactClass">
+                {contactForm()}
+        </section>
     );
 }
