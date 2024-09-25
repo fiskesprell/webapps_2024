@@ -5,9 +5,10 @@ import Experiences from "./Experiences";
 type AboutProps = {
     personalInfo: PersonalInfo,
     listOfExperiences: ExperienceProps[],
+    showEmailButton: JSX.Element,
 };
 
-export default function About({ personalInfo, listOfExperiences }: AboutProps) {
+export default function About({ personalInfo, listOfExperiences, showEmailButton }: AboutProps) {
 
     return(
         <aside className="aboutAside">
@@ -18,7 +19,7 @@ export default function About({ personalInfo, listOfExperiences }: AboutProps) {
                 <li><b>Navn:</b> {personalInfo.name}</li>
                 <li><b>Utdanning:</b> {personalInfo.degree}.</li>
                 <li><b>Studiepoeng:</b> {personalInfo.points}</li>
-                <li><b>Kontakt meg:</b> {personalInfo.contactEmail}</li>
+                <li>{showEmailButton()}</li>
             </ul>
             <h2>Erfaring</h2>
             <Experiences listOfExperiences={listOfExperiences} />

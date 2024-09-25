@@ -57,15 +57,23 @@ function App() {
     }
   ]
 
+  // Functions
+  function showEmailButton(){
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>{
+      alert("Kontakt meg på: " + personalInfo.contactEmail);
+    }
+    return <button className="showEmailButton" onClick={handleClick}>Vis e-post?</button>
+  }
+
   return (
     <>
       <Header name={personalInfo.name}/>
       <main>
-        <About personalInfo={personalInfo} listOfExperiences={listOfExperiences}/>
+        <About personalInfo={personalInfo} listOfExperiences={listOfExperiences} showEmailButton={showEmailButton}/>
         {/*<Contact email={personalInfo.contactEmail} /> */}
         <Projects listOfProjects={listOfProjects} />
       </main>
-      <Footer contactEmail={personalInfo.contactEmail}/>
+      <Footer showEmailButton={showEmailButton}/>
     </>
   )
 }

@@ -8,9 +8,9 @@ export default function Experience(props: Readonly<PropsWithChildren<ExperienceP
     const { children, description = "description", id="id" } = props;
 
     return(
-        <div key={id} className="singleExperience">
+        <>
             <p>{description}</p>
             {children}
-        </div>
+        </>
     );
 }
