@@ -38,6 +38,8 @@ header{
 main{
     display: flex;
     justify-content: center;
+    background-image: url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXprcjVhYWt1dG4ydzd0dGQzdzZuazQ0MHlubjUwNG96dXRweWpieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RkhMKpIYLT9sukfuXg/giphy.webp");
+    background-size: contain;
 }
 
 
@@ -154,6 +156,7 @@ aside{
     }
 
     ul{
+        background-color: var(--light_gray_bg);
         list-style: none;
         li {
             margin: 0.2rem;
