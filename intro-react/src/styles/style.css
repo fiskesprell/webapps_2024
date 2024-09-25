@@ -69,6 +69,7 @@ header{
                 font-style: normal;
                 font-size: 60px;
                 color: var(--beige);
+                margin: 1.2rem;
             }
         }
     }    

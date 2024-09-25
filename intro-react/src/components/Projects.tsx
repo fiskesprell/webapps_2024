@@ -15,7 +15,9 @@ export default function Projects(props: ProjectsProps) {
     return (
       <div className="projectsWrapper">
         {listOfProjects.map((project) => (
-          <Project title={project.title} description={project.description} repoLink={project.repoLink} />
+          <div key={project.id}>
+            <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} />
+          </div>
         ))}
       </div>
     )

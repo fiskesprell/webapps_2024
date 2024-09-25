@@ -32,21 +32,25 @@ function App() {
   
   let listOfProjects: ProjectProps[] = [
     {
+      id: "project_1",
       title: "Personal Website",
       description: "Personal website made for website week 2020",
       repoLink: "http://www.duckduckgo.com",
     },
     {
+      id: "project_2",
       title: "SuperGame",
       description: "Game made for coolmathgames gamejam '24",
       repoLink: "http://www.duckduckgo.com",
     },
     {
+      id: "project_3",
       title: "Secret Project",
       description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even. YEAH I LOVE IT SO MUCH I HAVE TO WRITE EVEN MORE TEXT ABOUT IT TO SEE IT!! WOW!!! SO GOOD!!!!!",
       repoLink: "http://www.duckduckgo.com",
     },
     {
+      id: "project_4",
       title: "KDA Gragas",
       description: "Man I love KDA Gragas. Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba! Bomba!",
       repoLink: "http://www.duckduckgo.com",

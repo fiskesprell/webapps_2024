@@ -15,9 +15,11 @@ export default function Experiences(props: ExperiencesProps) {
       <div className="experiencesWrapper">
 
         {listOfExperiences.map((experience) => (
-          <Experience id={experience.id} description={experience.description}>
-              <a href="#">Link to experience</a>
-          </Experience>
+          <div key={experience.id}>
+            <Experience id={experience.id} description={experience.description}>
+                <a href="#">Link to experience</a>
+            </Experience>
+          </div>
         ))}
       </div>
     )

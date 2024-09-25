@@ -3,7 +3,7 @@
 import { ProjectProps } from '../types/types'
 
 export default function Student(props: ProjectProps) {
-    const { title="title", description="description", repoLink="repoLink"  } = props;
+    const { title="title", description="description", repoLink="repoLink" } = props;
 
     return(
         <article className="projectArticle">
