@@ -52,6 +52,7 @@ function App() {
     },
   ]
 
+  // "Global" states
   const [projectsList, setProjectsList] = useState<ProjectProps[]>(listOfProjects);
 
   // Functions
@@ -164,6 +165,7 @@ function App() {
             </label>
             <button type="submit">Send melding</button>
           </form>
+          <h2>Antall prosjekter: {projectsList.length}</h2>
         </div>
       </>
     )
