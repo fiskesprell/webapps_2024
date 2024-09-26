@@ -5,13 +5,12 @@ import Contact from './components/Contact'
 import { ExperienceProps, PersonalInfo, ProjectProps } from './types/types'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CreateProject from './components/CreateProject'
-
+import { ofetch } from "ofetch";
 
 function App() {
-  // Test data
-
+  // ikke-fra-backend test data
   let personalInfo: PersonalInfo = {
       name: 'Jørgen Hovet',
       contactEmail: 'jorgeho@hiof.no',
@@ -47,13 +46,24 @@ function App() {
     {
       id: crypto.randomUUID(),
       title: "Secret Project",
-      description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even. YEAH I LOVE IT SO MUCH I HAVE TO WRITE EVEN MORE TEXT ABOUT IT TO SEE IT!! WOW!!! SO GOOD!!!!!",
+      description: "Signed an NDA. Can't say. Sorry. But its amazing, huge even.",
       repoLink: "http://www.duckduckgo.com",
     },
   ]
 
   // "Global" states
   const [projectsList, setProjectsList] = useState<ProjectProps[]>(listOfProjects);
+
+  // Henter data fra backend - basert på kode fra 09 useffect del 2 (9. Datahenting [...] del 2)
+  const initializeData = () => {
+    ofetch("http://localhost:3000/projects")
+    .then((projects: { data: ProjectProps[] }) => {setProjectsList(projects.data)});
+  };
+  
+  useEffect(() => {
+    initializeData();
+  }, []);
+  
 
   // Functions
   function showEmailButton(){
