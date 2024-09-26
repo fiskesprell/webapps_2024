@@ -1,5 +1,6 @@
-# Status: Fullført `:)`
-<p>frontend ligger i intro-react.</p>
+# Status: Fullført :)
+NB: frontend ligger i intro-react.
+Bruker ikke intro-next til noe, den finnes kun fordi jeg fulgte instruksjoner i leksjon 7.
 ## Oppgaver
 <ol>
     <li>Leksjon 7: react intro (...ferdig!)</li>
