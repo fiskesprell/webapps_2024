@@ -1,6 +1,0 @@
-## Mindre bruk av div-elementer.
-Jeg har brukt flere div-elementer for å gjøre styling med flexbox enklere.
-Koden ville vært ryddigere og bedre semantisk om jeg fjernet disse og fant 
-en annen måte å style elementene på som oppnår samme effekt uten ekstra div-elementer.
-
-## 
