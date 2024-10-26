@@ -1,7 +1,7 @@
 import './styles/style.css'
 import Header from './components/Header'
 import About from './components/About'
-import { personalInfo, listOfExperiences } from './config/config';
+import { personalInfo, listOfExperiences } from './config/testData';
 import Projects from './components/Projects'
 import Footer from './components/Footer'
 import useProjects from './hooks/useProjects'

@@ -3,8 +3,6 @@
 import Project from './Project'
 import { ProjectProps, ProjectsProps } from '../types/types'
 
-
-
 export default function Projects(props: ProjectsProps) {
     const { listOfProjects, setProjectsList } = props;
 

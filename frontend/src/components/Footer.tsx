@@ -1,7 +1,7 @@
 // Importer Style
 // import './styles/grid.css';
 
-import { personalInfo } from "../config/config";
+import { personalInfo } from "../config/testData";
 import { showEmailAlert } from "../helpers/alerts";
 
 export default function Footer() {
