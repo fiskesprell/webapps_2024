@@ -1,19 +1,16 @@
 // Importer Style
 // import './styles/grid.css';
 
-type FooterProps = {
-    contactEmail: string
-}
+import { personalInfo } from "../config/config";
+import { showEmailAlert } from "../helpers/alerts";
 
-
-
-export default function Footer({showEmailButton}) {
+export default function Footer() {
 
     return(
         <footer>
             <ul>
                 <li><p>Copyright: Jørgen Hovet 2024-2024</p></li>
-                <li>{showEmailButton()}</li>
+                <li><button className="showEmailButton" onClick={() => {showEmailAlert(personalInfo.contactEmail)}}>Vis e-post?</button></li>
             </ul>
         </footer>
     );

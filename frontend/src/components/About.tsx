@@ -1,14 +1,14 @@
 import { ExperienceProps, PersonalInfo } from "../types/types";
 import '../styles/style.css'
 import Experiences from "./Experiences";
+import { showEmailAlert } from "../helpers/alerts";
 
 type AboutProps = {
     personalInfo: PersonalInfo,
     listOfExperiences: ExperienceProps[],
-    showEmailButton: () => JSX.Element,
 };
 
-export default function About({ personalInfo, listOfExperiences, showEmailButton }: AboutProps) {
+export default function About({ personalInfo, listOfExperiences }: AboutProps) {
 
     return(
         <aside className="aboutAside">
@@ -19,7 +19,7 @@ export default function About({ personalInfo, listOfExperiences, showEmailButton
                 <li><b>Navn:</b> {personalInfo.name}</li>
                 <li><b>Utdanning:</b> {personalInfo.degree}.</li>
                 <li><b>Studiepoeng:</b> {personalInfo.points}</li>
-                <li>{showEmailButton()}</li>
+                <li><button className="showEmailButton" onClick={() => {showEmailAlert(personalInfo.contactEmail)}}>Vis e-post?</button></li>
             </ul>
             <h2>Erfaring</h2>
             <Experiences listOfExperiences={listOfExperiences} />

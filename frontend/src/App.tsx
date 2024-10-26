@@ -11,28 +11,19 @@ import Contactform from './components/ContactForm'
 function App() {
   // Henter ut data ved hjelp av custom hook
   const { projectsList, setProjectsList, loading, error } = useProjects();
-  
-
-  // Functions
-  function showEmailButton(){
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>{
-      alert("Kontakt meg på: " + personalInfo.contactEmail);
-    }
-    return <button className="showEmailButton" onClick={handleClick}>Vis e-post?</button>
-  }
 
   return (
     <>
       <Header name={personalInfo.name}/>
       <main>
-        <About personalInfo={personalInfo} listOfExperiences={listOfExperiences} showEmailButton={showEmailButton}/>
+        <About personalInfo={personalInfo} listOfExperiences={listOfExperiences}/>
         <Projects listOfProjects={projectsList} setProjectsList={setProjectsList} />
         <div>
           <Contactform />
           <ProjectForm projectsList={projectsList} setProjectsList={setProjectsList}/>
         </div>
       </main>
-      <Footer showEmailButton={showEmailButton}/>
+      <Footer/>
     </>
   )
 }
