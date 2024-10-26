@@ -1,12 +1,9 @@
 // Importer Style
 // import './styles/grid.css';
 import Project from './Project'
-import { ProjectProps } from '../types/types'
+import { ProjectProps, ProjectsProps } from '../types/types'
 
-type ProjectsProps = {
-  listOfProjects: ProjectProps[],
-  setProjectsList: React.Dispatch<React.SetStateAction<ProjectProps[]>>
-};
+
 
 export default function Projects(props: ProjectsProps) {
     const { listOfProjects, setProjectsList } = props;
