@@ -1,22 +1,32 @@
 import type { PropsWithChildren } from "react";
-import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
-import Layout from "./Layout";
-import { personalInfo } from "../config/testData";
+import Layout from "../components/Layout";
+import { personalInfo, listOfExperiences } from "../config/testData";
+import useProjects from "../hooks/useProjects";
+import About from "../components/About";
+import Projects from "../components/Projects";
+import Contactform from "../components/ContactForm";
+import ProjectForm from "../components/ProjectForm";
 
 type LayoutProps = PropsWithChildren;
 
+
 export default function PortfolioPage(props: LayoutProps) {
-  const { children } = props;
+  // Henter ut data ved hjelp av custom hook
+  const { projectsList, setProjectsList, loading, error } = useProjects();
+  const { children } = props; // Unused
 
   return (
     <Layout>
+        {/*Left Aside*/}
         <About personalInfo={personalInfo} listOfExperiences={listOfExperiences}/>
+
         <Projects listOfProjects={projectsList} setProjectsList={setProjectsList} />
-        <div>
+        
+        {/*Right Aside*/}
+        <section>
           <Contactform />
           <ProjectForm projectsList={projectsList} setProjectsList={setProjectsList}/>
-        </div>
+        </section>
     </Layout>
   );
 }
