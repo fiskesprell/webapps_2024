@@ -15,12 +15,14 @@ app.get("/projects", (c) => {
           title: "Personal Website",
           description: "Personal website made for website week 2020",
           repoLink: "http://www.duckduckgo.com",
+          publishedAt: new Date("2024-10-01"),
         },
         {
           id: crypto.randomUUID(),
           title: "SuperGame",
           description: "Game made for coolmathgames gamejam '24",
           repoLink: "http://www.duckduckgo.com",
+          publishedAt: new Date("2024-10-02"),
         },
         {
           id: crypto.randomUUID(),
@@ -30,6 +32,7 @@ app.get("/projects", (c) => {
           You read for the love of the filler. I respect that.
           I recommend watching One Piece; seeing as you really, really seem to love filler.`,
           repoLink: "http://www.duckduckgo.com",
+          publishedAt: new Date("2024-10-03"),
         },
       ],
   });

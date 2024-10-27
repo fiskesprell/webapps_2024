@@ -7,6 +7,7 @@ const projectSchema = z.object({
     title: z.string(),
     description: z.string(),
     repoLink: z.string(),
+    publishedAt: z.string().transform((str) => new Date(str)),
 });
 
 const projectsSchema = z.array(projectSchema);

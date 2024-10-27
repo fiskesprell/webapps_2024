@@ -3,7 +3,7 @@ import { fetchProjects } from "../services/projectsApi";
 import { ProjectProps } from "../types/types";
 
 export function useProjects() {
-    const [projectsList, setProjectsList] = useState<ProjectProps[]>([]); // Tom liste til å begynne med
+    const [projectsList, setProjectsList] = useState<ProjectProps[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
