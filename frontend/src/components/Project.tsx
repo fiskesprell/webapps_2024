@@ -5,7 +5,7 @@ import { ProjectProps } from '../types/types'
 import type { PropsWithChildren } from "react";
 
 export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>) {
-    const { children, title="title", description="description", repoLink="repoLink", publishedAt } = props;
+    const { children, title="title", description="description", repoLink="repoLink", publishedAt, tags} = props;
 
     return(
         <article className="projectArticle">
@@ -18,9 +18,14 @@ export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>
                     <p>{description}</p>
                     <p>Utgitt {formatDistance(publishedAt)}</p>
                     <a href={repoLink}>Link to Repository</a>
+
                     {children}
                 </div>
             </div>
+            <div className="tagDiv">
+                    <p>Tags: </p>
+                    {tags.map((tag) => (<p className="tags">{tag}</p>))}
+                </div>
         </article>
     );
 }

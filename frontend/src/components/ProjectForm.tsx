@@ -6,18 +6,24 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
     const [projectTitle, setProjectTitle] = useState<string>('');
     const [projectDescription, setProjectDescription] = useState<string>('');
     const [projectRepoLink, setProjectRepoLink] = useState<string>('');
+    const [projectTags, setProjectTags] = useState<string>('');
     // const [projectImageLink, setProjectImageLink] = useState<string>('');
 
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
 
       if (projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3) {
+
+        const tagsArray = projectTags.split(',').map(tag => tag.trim());
+
         // Create and add object to list
         let projectToAddToList: ProjectProps = {
           id: crypto.randomUUID(),
           title: projectTitle,
           description: projectDescription,
           repoLink: projectRepoLink,
+          publishedAt: new Date(Date.now()),
+          tags: tagsArray,
         }
 
         setProjectsList([...projectsList, projectToAddToList]);
@@ -25,7 +31,8 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
         {/* Then reset fields */}
         setProjectTitle('');
         setProjectDescription('');
-        setProjectRepoLink('')
+        setProjectRepoLink('');
+        setProjectTags('');
         // setProjectImageLink('')
         setFormError(false);
       } else {
@@ -36,6 +43,7 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
     const updateProjectTitle = (e: React.ChangeEvent<HTMLInputElement>) => setProjectTitle(e.target.value);
     const updateProjectDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => setProjectDescription(e.target.value);
     const updateProjectRepoLink = (e: React.ChangeEvent<HTMLInputElement>) => setProjectRepoLink(e.target.value);
+    const updateProjectTags = (e: React.ChangeEvent<HTMLInputElement>) => setProjectTags(e.target.value);
     // const updateProjectImageLink = (e: React.ChangeEvent<HTMLInputElement>) => setProjectImageLink(e.target.value);
 
 
@@ -58,7 +66,13 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
                 <label htmlFor="projectRepoLink">Repository Lenke:
                 <input id="projectRepoLink" name="projectRepoLink" type="text" value={projectRepoLink} onChange={updateProjectRepoLink}/>
                 </label>
-                <button type="submit">Send melding</button>
+
+                <label htmlFor="projectTags">Tags (Komma-separert.)
+                        <input id="projectTags" name="projectTags" type="text" value={projectTags} onChange={updateProjectTags} />
+                </label>
+
+                <button type="submit">Legg til prosjekt</button>
+
             </form>
             <h2>Antall prosjekter: {projectsList.length}</h2>
             </div>

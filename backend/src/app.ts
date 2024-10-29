@@ -16,6 +16,7 @@ app.get("/projects", (c) => {
           description: "Personal website made for website week 2020",
           repoLink: "http://www.duckduckgo.com",
           publishedAt: new Date("2024-10-01"),
+          tags: ["Webdev", "HTML", "CSS", "React", "TypeScript"],
         },
         {
           id: crypto.randomUUID(),
@@ -23,6 +24,7 @@ app.get("/projects", (c) => {
           description: "Game made for coolmathgames gamejam '24",
           repoLink: "http://www.duckduckgo.com",
           publishedAt: new Date("2024-10-02"),
+          tags: ["Gamedev", "Godot", "C#"],
         },
         {
           id: crypto.randomUUID(),
@@ -33,6 +35,7 @@ app.get("/projects", (c) => {
           I recommend watching One Piece; seeing as you really, really seem to love filler.`,
           repoLink: "http://www.duckduckgo.com",
           publishedAt: new Date("2024-10-03"),
+          tags: ["NDA"],
         },
       ],
   });

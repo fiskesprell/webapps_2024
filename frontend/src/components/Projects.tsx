@@ -16,8 +16,8 @@ export default function Projects(props: ProjectsProps) {
           <article className="noProjectsArticle"><p>Du har ingen prosjekter.</p></article> )
           : (
             ( listOfProjects.map((project) => (
-              <div key={project.id}>
-                <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} publishedAt={project.publishedAt}>
+              <div key={project.id} className="articleDiv">
+                <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} publishedAt={project.publishedAt} tags={project.tags}>
                   <button onClick={() => removeCurrentProject(project.id)}> Slett Prosjekt </button>
                 </Project>
               </div>

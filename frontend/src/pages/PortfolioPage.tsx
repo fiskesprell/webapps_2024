@@ -20,9 +20,11 @@ export default function PortfolioPage(props: LayoutProps) {
         {/*Left Aside*/}
         <About personalInfo={personalInfo} listOfExperiences={listOfExperiences}/>
 
+        {/*Main content*/}
         <Projects listOfProjects={projectsList} setProjectsList={setProjectsList} />
         
         {/*Right Aside*/}
+        {/*Could be its own component?*/}
         <section>
           <Contactform />
           <ProjectForm projectsList={projectsList} setProjectsList={setProjectsList}/>
