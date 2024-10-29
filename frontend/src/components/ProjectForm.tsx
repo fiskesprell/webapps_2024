@@ -12,7 +12,7 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
 
-      if (projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3) {
+      if (projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTags.length > 3) {
 
         const tagsArray = projectTags.split(',').map(tag => tag.trim());
 
