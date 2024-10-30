@@ -1,8 +1,10 @@
 {
   "name": "backend",
-  "scripts": {
+"scripts": {
     "dev": "tsx watch src/index.ts",
     "dev:debug": "tsx watch --inspect src/index.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "db:setup": "tsx src/db/index.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.1",
