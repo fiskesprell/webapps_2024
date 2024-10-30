@@ -1,6 +1,3 @@
-// Importer Style
-// import './styles/grid.css';
-
 import type { PropsWithChildren } from "react";
 import type { ExperienceProps } from "../types/types";
 

@@ -1,6 +1,3 @@
-// Importer Style
-// import './styles/grid.css';
-
 type ContactProps = {
     contactForm: () => JSX.Element,
 };

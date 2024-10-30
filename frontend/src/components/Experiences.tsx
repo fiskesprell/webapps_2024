@@ -1,5 +1,3 @@
-// Importer Style
-// import './styles/grid.css';
 import Experience from './Experience'
 import { ExperienceProps } from '../types/types'
 

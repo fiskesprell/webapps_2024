@@ -1,6 +1,3 @@
-// Importer Style
-// import './styles/grid.css';
-
 import { personalInfo } from "../config/testData";
 import { showEmailAlert } from "../helpers/alerts";
 
