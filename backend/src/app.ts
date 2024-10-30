@@ -4,6 +4,7 @@ import { getUser } from "./features/users/utils/auth"
 import { HTTPException } from "hono/http-exception";
 import { User } from "./features/users/types/user";
 import { projects } from "./data/projectData";
+import { authors } from "./data/authorData";
 
 type ContextVariables = {
   user: User | null;
@@ -19,16 +20,29 @@ app.use(
   })
 );
 
+app.get("/authors", (c) => {
+    return c.json(authors)
+});
+
 app.get("/projects", (c) => {
   const user = getUser(c.req.raw);
-  
-  // Legg til en cookie manuelt i browser med følgende data:
-  // Name = user.id
-  // value = 1
-  // if (!user) throw new HTTPException(401);
 
+  const projectsWithAuthors = projects.map(project => {
+    const author = authors.find(author => author.id === project.authorId);
+    return {
+      ...project,
+      author: author || null
+    };
+  });
 
-  return c.json({data: projects});
+  if (user && user.role === "admin") {
+    return c.json({ data: projectsWithAuthors });
+  }
+
+  // Om ikke admin så filtrer bort alle public=false prosjekter
+  const publicProjects = projectsWithAuthors.filter(project => project.public === true);
+
+  return c.json({ data: publicProjects });
 });
 
 export default app;

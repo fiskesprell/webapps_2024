@@ -1,11 +1,9 @@
-// Importer Style
-// import './styles/grid.css';
 import { formatDistance } from '../helpers/formatDistance';
 import { ProjectProps } from '../types/types'
 import type { PropsWithChildren } from "react";
 
 export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>) {
-    const { children, title="title", description="description", repoLink="repoLink", publishedAt, tags} = props;
+    const { children, title="title", description="description", repoLink="repoLink", publishedAt, tags, author} = props;
 
     return(
         <article className="projectArticle">
@@ -25,7 +23,8 @@ export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>
             <div className="tagDiv">
                     <p>Tags: </p>
                     {tags.map((tag) => (<p className="tags" key={ title + tag}>{tag}</p>))}
-                </div>
+            </div>
+            <p className="authorInfo">Author: {author.name} - {author.email}</p>
         </article>
     );
 }

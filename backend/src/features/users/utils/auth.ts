@@ -1,4 +1,4 @@
-import { users } from "../../../data/userData"
+import { users } from "../../../data/userData";
 import type { User } from "../types/user";
 
 // Eksempel på en cookie vi mottar
@@ -14,6 +14,6 @@ const parseCookie = (cookie: string) => {
 export function getUser(request: Request): User | null {
   const cookies = parseCookie(request.headers.get("Cookie") ?? "");
   // Henter ut user.id cookie verdi
-  const id = cookies["user.id"];
-  return users.find((user) => user.id === id) ?? null;
+  const role = cookies["user.role"];
+  return users.find((user) => user.role === role) ?? null;
 }

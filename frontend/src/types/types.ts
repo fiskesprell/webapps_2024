@@ -8,7 +8,15 @@ export type ProjectProps = {
     publishedAt: Date,
     tags: string[],
     authorId: string,
+    author: Author,
 };
+
+export type Author = {
+    id: string;
+    email: string;
+    name: string;
+};
+
 
 export type ProjectsProps = {
     listOfProjects: ProjectProps[],

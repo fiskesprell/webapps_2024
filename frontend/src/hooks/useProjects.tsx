@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchProjects } from "../services/projectsApi";
 import { ProjectProps } from "../types/types";
 
+
 export function useProjects() {
     const [projectsList, setProjectsList] = useState<ProjectProps[]>([]);
     const [loading, setLoading] = useState(true);

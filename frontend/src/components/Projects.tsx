@@ -17,7 +17,7 @@ export default function Projects(props: ProjectsProps) {
           : (
             ( listOfProjects.map((project) => (
               <div key={project.id} className="articleDiv">
-                <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} publishedAt={project.publishedAt} tags={project.tags}>
+                <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} publishedAt={project.publishedAt} tags={project.tags} author={project.author}>
                   <button onClick={() => removeCurrentProject(project.id)}> Slett Prosjekt </button>
                 </Project>
               </div>

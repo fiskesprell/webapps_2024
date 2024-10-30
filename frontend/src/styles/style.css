@@ -114,6 +114,18 @@ body{
         flex-direction: column;
     }
 
+    .authorInfo{
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        color: var(--beige);
+        margin-left: 1rem;
+        background-color: var(--dark_blue);
+        padding: 0.5rem;
+    }
+
     .tagDiv{
         display: flex;
         flex-direction: row;
@@ -128,7 +140,6 @@ body{
             font-variation-settings: "wdth" 100;
             color: var(--beige);
 
-            margin-left: 1rem;
             margin-left: 1rem;
         }
 

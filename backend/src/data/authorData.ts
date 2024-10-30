@@ -13,4 +13,9 @@ const authors: Author[] = [
     email: "kristoffer@test.no",
     name: "Kristoffer Kodehode",
   },
+  {
+    id: "3",
+    email: "evilIndustries@veryMean.no",
+    name: "Mr. Evil"
+  }
 ];

@@ -9,6 +9,7 @@ const projects = [
       publishedAt: new Date("2024-10-01"),
       tags: ["Webdev", "HTML", "CSS", "React", "TypeScript"],
       authorId: "1",
+      public: true,
     },
     {
       id: crypto.randomUUID(),
@@ -18,6 +19,7 @@ const projects = [
       publishedAt: new Date("2024-10-02"),
       tags: ["Gamedev", "Godot", "C#"],
       authorId: "2",
+      public: true,
     },
     {
       id: crypto.randomUUID(),
@@ -28,7 +30,18 @@ const projects = [
       I recommend watching One Piece; seeing as you really, really seem to love filler.`,
       repoLink: "http://www.duckduckgo.com",
       publishedAt: new Date("2024-10-03"),
-      tags: ["NDA"],
+      tags: ["NDA", "AdminOnly"],
       authorId: "1",
+      public: false,
     },
+    {
+      id: crypto.randomUUID(),
+      title: "Only Admins can see this",
+      description: `This is an evil project. Made to take over the world. Only evil people are allowed to see this. You must be very evil indeed.`,
+      repoLink: "http://www.duckduckgo.com",
+      publishedAt: new Date("2023-10-03"),
+      tags: ["Evil", "WorldDomination", "Rust", "AdminOnly"],
+      authorId: "3",
+      public: false,
+    }
 ]
