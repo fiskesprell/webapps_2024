@@ -8,6 +8,7 @@ const projects = [
       repoLink: "http://www.duckduckgo.com",
       publishedAt: new Date("2024-10-01"),
       tags: ["Webdev", "HTML", "CSS", "React", "TypeScript"],
+      authorId: "1",
     },
     {
       id: crypto.randomUUID(),
@@ -16,6 +17,7 @@ const projects = [
       repoLink: "http://www.duckduckgo.com",
       publishedAt: new Date("2024-10-02"),
       tags: ["Gamedev", "Godot", "C#"],
+      authorId: "2",
     },
     {
       id: crypto.randomUUID(),
@@ -27,5 +29,6 @@ const projects = [
       repoLink: "http://www.duckduckgo.com",
       publishedAt: new Date("2024-10-03"),
       tags: ["NDA"],
+      authorId: "1",
     },
 ]

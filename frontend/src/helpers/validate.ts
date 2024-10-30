@@ -8,7 +8,8 @@ const projectSchema = z.object({
     description: z.string(),
     repoLink: z.string(),
     publishedAt: z.string().transform((str) => new Date(str)),
-    tags: z.array(z.string())
+    tags: z.array(z.string()),
+    authorId: z.string(),
 });
 
 const projectsSchema = z.array(projectSchema);

@@ -7,6 +7,7 @@ export type ProjectProps = {
     repoLink: string,
     publishedAt: Date,
     tags: string[],
+    authorId: string,
 };
 
 export type ProjectsProps = {

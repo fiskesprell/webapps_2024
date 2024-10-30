@@ -1,6 +1,8 @@
+import { Author } from "../features/authors/types/author";
+
 export { authors };
 
-const authors = [
+const authors: Author[] = [
   {
     id: "1",
     email: "jorgeho@hiof.no",
