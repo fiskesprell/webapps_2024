@@ -24,7 +24,7 @@ export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>
             </div>
             <div className="tagDiv">
                     <p>Tags: </p>
-                    {tags.map((tag) => (<p className="tags">{tag}</p>))}
+                    {tags.map((tag) => (<p className="tags" key={ title + tag}>{tag}</p>))}
                 </div>
         </article>
     );
