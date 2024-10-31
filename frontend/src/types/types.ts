@@ -5,9 +5,10 @@ export type ProjectProps = {
     title: string,
     description: string,
     repoLink: string,
-    publishedAt: Date,
+    publishedAt: Date | string,
     tags: string[],
     authorId: string,
+    public: boolean,
     // author: Author,
 };
 
@@ -27,7 +28,7 @@ export type ProjectsProps = {
 export type ProjectFormProps = {
     projectsList: ProjectProps[],
     setProjectsList: React.Dispatch<React.SetStateAction<ProjectProps[]>>,
-    createProject: (projectData: ProjectProps) => Promise<void>
+    createProject: (data: any) => Promise<null | any>
 };
 
 // Experience-related props

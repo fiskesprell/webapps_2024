@@ -4,7 +4,7 @@ export type Project = {
     description: string;
     repoLink: string;
     publishedAt: Date;
-    tags: string[];
+    tags: string;
     authorId: string;
     public: boolean;
 };

@@ -1,6 +1,7 @@
 import { ofetch } from "ofetch";
 import { projectSchema, projectsSchema } from "../helpers/validate";
 import { endpoints } from "../config/urls"
+import { ProjectProps } from "../types/types";
 
 export const fetchProjects = async () => {
     try {
@@ -15,20 +16,35 @@ export const fetchProjects = async () => {
     }
 }
 
-export const createProject = async (data: any) => {
+export const createProject = async (projectData: ProjectProps): Promise<ProjectProps | null> => {
     try {
-        const newProject = await ofetch(endpoints.projects, {
-            method: "POST",
-            credentials: "include",
-            body: data
-        });
-        console.log(projectSchema.safeParse(newProject.data));
-        return projectSchema.parse(newProject.data);
-    } catch (e) {
-        console.error(e);
-        return null;
+      const response = await fetch(endpoints.projects, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...projectData,
+          // Ensure publishedAt is converted to a proper format
+          publishedAt: projectData.publishedAt instanceof Date 
+            ? projectData.publishedAt.toISOString() 
+            : new Date(projectData.publishedAt).toISOString()
+        })
+      });
+  
+      if (!response.ok) {
+        const errorBody = await response.text();
+        console.error('Server error response:', errorBody);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const createdProject = await response.json();
+      return createdProject;
+    } catch (error) {
+      console.error('Project creation failed', error);
+      return null;
     }
-};
+  };
 
 export const deleteProject = async (id: string) => {
     try {

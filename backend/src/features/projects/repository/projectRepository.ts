@@ -60,28 +60,32 @@ export const createProjectRepository = (db: DB) => {
     const create = async (data: Project): Promise<Result<string>> => {
         try {
             const project = toDb(data);
+            
+            if (project.published_at instanceof Date) {
+                project.published_at = project.published_at.toISOString();
+            }
     
             const query = db.prepare(`
                 INSERT INTO projects (id, title, description, repo_link, published_at, tags, author_id, public)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                `);
+            `);
     
             query.run(
                 project.id,
                 project.title,
                 project.description,
-                project.repo_link, // does it need to be repoLink?
-                project.published_at, // same here
+                project.repo_link,
+                project.published_at,
                 project.tags,
-                project.author_id, //same here
-                project.public,
+                project.author_id,
+                project.public ? 1 : 0  // Convert boolean to integer for SQLite
             );
     
             return ResultHandler.success(project.id);
         } catch (error) {
+            console.error('Create project error:', error); // Add this for debugging
             return ResultHandler.failure(error, "INTERNAL_SERVER_ERROR");
         }
-    
     };
 
     // Oppdaterer en eksisterende project

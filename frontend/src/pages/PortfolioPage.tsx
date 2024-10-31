@@ -6,8 +6,7 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Contactform from "../components/ContactForm";
 import ProjectForm from "../components/ProjectForm";
-import { createProject } from "../services/projectsApi";
-import { deleteProject } from "../services/projectsApi";
+import { createProject, deleteProject } from "../services/projectsApi";
 
 type LayoutProps = PropsWithChildren;
 
@@ -29,7 +28,7 @@ export default function PortfolioPage(props: LayoutProps) {
         {/*Could be its own component?*/}
         <section>
           <Contactform />
-          <ProjectForm projectsList={projectsList} setProjectsList={setProjectsList} addProject={createProject}/>
+          <ProjectForm projectsList={projectsList} setProjectsList={setProjectsList} createProject={createProject}/>
         </section>
     </Layout>
   );

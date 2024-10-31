@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProjectProps, ProjectFormProps } from "../types/types";
 
-export default function ProjectForm({ projectsList, setProjectsList }: ProjectFormProps){
+export default function ProjectForm({ projectsList, setProjectsList, createProject}: ProjectFormProps){
     const [formError, setFormError] = useState(false);
     const [projectTitle, setProjectTitle] = useState<string>('');
     const [projectDescription, setProjectDescription] = useState<string>('');
@@ -12,11 +12,10 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
 
-      if (projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTitle.length > 3 && projectTags.length > 3) {
-
+      if (projectTitle.length > 3 && projectDescription.length > 3 && projectTags.length > 3) {
         const tagsArray = projectTags.split(',').map(tag => tag.trim());
+        
 
-        // Create and add object to list
         let projectToAddToList: ProjectProps = {
           id: crypto.randomUUID(),
           title: projectTitle,
@@ -24,14 +23,23 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
           repoLink: projectRepoLink,
           publishedAt: new Date(Date.now()),
           tags: tagsArray,
-          authorId: "",
-          /* author: {
-            id: crypto.randomUUID(),
-            email: "test@test.com",
-            name: "TestMan TestGuy"
-          } */
-        }
+          authorId: "1",
+          public: true
+        };
 
+        let projectToAddToBackend = {
+          id: crypto.randomUUID(),
+          title: projectTitle,
+          description: projectDescription,
+          repoLink: projectRepoLink,
+          publishedAt: new Date(Date.now()).toISOString(),
+          tags: projectTags,
+          authorId: "1",
+          public: true
+        };
+
+
+        createProject(projectToAddToBackend)
         setProjectsList([...projectsList, projectToAddToList]);
 
         // Then reset fields
@@ -44,7 +52,7 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
       } else {
         setFormError(true);
       }
-    };
+    }
 
     const updateProjectTitle = (e: React.ChangeEvent<HTMLInputElement>) => setProjectTitle(e.target.value);
     const updateProjectDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => setProjectDescription(e.target.value);

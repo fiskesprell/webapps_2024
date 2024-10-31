@@ -5,8 +5,11 @@ export const projectSchema = z.object({
   title: z.string().min(3),
   description: z.string(),
   repoLink: z.string().url(),
-  publishedAt: z.date(),
-  tags: z.array(z.string()),
+  publishedAt: z.union([
+    z.date(),
+    z.string().transform(val => new Date(val))
+  ]),
+  tags: z.string(),
   authorId: z.string(),
   public: z.boolean(),
 });
@@ -17,19 +20,19 @@ export const updateProjectSchema = projectSchema.omit({
   publishedAt: true,
 });
 
-export const createProjectSchema = projectSchema.omit({
-  id: true,
-  publishedAt: true,
-});
+export const createProjectSchema = projectSchema;
 
 export const projectFromDbSchema = z.object({
   id: z.string(),
-  title: z.string(),
+  title: z.string().min(3),
   description: z.string(),
-  repo_link: z.string(),
-  published_at: z.string(),
+  repoLink: z.string().url(),
+  publishedAt: z.union([
+    z.date(),
+    z.string().transform(val => new Date(val))
+  ]),
   tags: z.string(),
-  author_id: z.string(),
+  authorId: z.string(),
   public: z.boolean(),
 });
 
