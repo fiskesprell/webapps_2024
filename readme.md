@@ -1,9 +1,3 @@
-# Status: In Progress
-## Oppgaver
-<ol>
-    <li>Leksjon 6: webapp-2024-css-refactor (done)</li>
-    <li>Leksjon 10: webapp-2024-layout-page-hooks (done)</li>
-    <li>Leksjon 10: webapp-2024-bruker-mellomvare (done)</li>
-    <li>Leksjon 11: webapp-2024-n-tier-rest (in progress)</li>
-    <li>Leksjon 11: webapp-2024-testing (in progress)</li>
-</ol>
+# Status: Done.
+
+Har inkludert alt(?) som er i følgende lenke: https://digitalgnist.notion.site/Oblig-3-31-10-24-12554b19b51f80ba9d30cd0621c6eb09?pvs=4
