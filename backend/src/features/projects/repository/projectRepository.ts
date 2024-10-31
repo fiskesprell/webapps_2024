@@ -16,14 +16,14 @@ export const createProjectRepository = (db: DB) => {
     
     // Henter en vane basert på ID og bruker-ID
     // Denne er kopiert fra ulearn.no i tilfelle, men jeg har ikke bruker-id så.... vet ikke om trengs.
-    const getById = async (id: string, userId: string): Promise<Result<Habit | undefined>> => {
+    const getById = async (id: string): Promise<Result<Project | undefined>> => {
         try {
             const project = await exist(id);
             if (!project) return ResultHandler.failure("Project not found", "NOT_FOUND");
             const query = db.prepare(
                 "SELECT * FROM projects WHERE id = ? AND user_id = ?"
             );
-            const data = query.get(id, userId) as DbHabit;
+            const data = query.get(id) as DbProject;
             // TODO: validering av habit med Zod kan legges til her
             // Konverterer fra databaseformat til applikasjonsformat
             return ResultHandler.success(fromDb(data));
