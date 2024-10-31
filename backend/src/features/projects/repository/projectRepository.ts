@@ -1,7 +1,7 @@
 import type { DB } from "@/db/db";
 import type { Project, DbProject } from "../types/projectsTypes";
-import { fromDb, toDb } from "../mappers";
-import type { Result } from "@/types";
+import { fromDb, toDb } from "../mappers/projectMapper";
+import type { Result } from "@/types/types";
 import { ResultHandler } from "@/lib/result";
 
 export const createProjectRepository = (db: DB) => {
@@ -24,7 +24,7 @@ export const createProjectRepository = (db: DB) => {
                 "SELECT * FROM projects WHERE id = ? AND user_id = ?"
             );
             const data = query.get(id) as DbProject;
-            // TODO: validering av habit med Zod kan legges til her
+            // TODO: validering av project med Zod kan legges til her
             // Konverterer fra databaseformat til applikasjonsformat
             return ResultHandler.success(fromDb(data));
             } catch (error) {
@@ -70,10 +70,10 @@ export const createProjectRepository = (db: DB) => {
                 project.id,
                 project.title,
                 project.description,
-                project.repoLink, // does it need to be repo_link?
-                project.publishedAt, // same here
+                project.repo_link, // does it need to be repoLink?
+                project.published_at, // same here
                 project.tags,
-                project.authorId, //same here
+                project.author_id, //same here
                 project.public,
             );
     
@@ -103,10 +103,10 @@ export const createProjectRepository = (db: DB) => {
         query.run(
             project.title,
             project.description,
-            project.repoLink, // Må dette være repo_link?
-            project.publishedAt, // samme her
+            project.repo_link, // Må dette være repoLink?
+            project.published_at, // samme her
             project.tags, 
-            project.authorId, // samme her
+            project.author_id, // samme her
             project.public,
             project.id
         );

@@ -34,7 +34,7 @@ export const createProjectService = (projectRepository: ProjectRepository) => {
         return projectRepository.create(project);
     };
 
-    const update = async (data: UpdateProject, userId: string) => {
+    const update = async (data: UpdateProject) => {
         const validationResult = validateUpdateProject(data);
         
         if (!validationResult.success) {
@@ -42,9 +42,6 @@ export const createProjectService = (projectRepository: ProjectRepository) => {
         }
 
         const project = createProject(validationResult.data);
-
-        if (!canEdit(project, userId))
-            return ResultHandler.failure("Can not edit this project", "UNAUTHORIZED");
 
         return projectRepository.update(project);
     };

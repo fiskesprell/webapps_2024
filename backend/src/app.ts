@@ -9,6 +9,9 @@ import { handleError } from "@/lib/error"
 import { ServerEnv } from "./lib/env";
 import { DB } from "./db/db";
 import { Logger } from "pino";
+import { projectController } from "@/features/projects/controller/projectsController";
+
+// Types
 
 type ContextVariables = {
   user: User | null;
@@ -26,8 +29,10 @@ export type HonoEnv = {
   } & ContextVariables;
 };
 
-const app = new Hono<HonoEnv>();
 
+// App(hono)
+const app = new Hono<HonoEnv>();
+app.route("/v1/projects", projectController);
 
 app.onError(handleError);
 

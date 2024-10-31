@@ -1,7 +1,7 @@
 import { Entries } from "@/lib/generalTypes";
 import { DbProject, Project } from "../types/projectsTypes";
 
-export const fromDbProject = (project: DbProject) => {
+export const fromDb = (project: DbProject) => {
     return {
       id: project.id,
       title: project.title,
