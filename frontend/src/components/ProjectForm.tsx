@@ -25,11 +25,11 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
           publishedAt: new Date(Date.now()),
           tags: tagsArray,
           authorId: "",
-          author: {
+          /* author: {
             id: crypto.randomUUID(),
             email: "test@test.com",
             name: "TestMan TestGuy"
-          }
+          } */
         }
 
         setProjectsList([...projectsList, projectToAddToList]);

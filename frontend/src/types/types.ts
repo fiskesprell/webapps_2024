@@ -8,7 +8,7 @@ export type ProjectProps = {
     publishedAt: Date,
     tags: string[],
     authorId: string,
-    author: Author,
+    // author: Author,
 };
 
 export type Author = {
@@ -20,12 +20,14 @@ export type Author = {
 
 export type ProjectsProps = {
     listOfProjects: ProjectProps[],
-    setProjectsList: React.Dispatch<React.SetStateAction<ProjectProps[]>>
+    setProjectsList: React.Dispatch<React.SetStateAction<ProjectProps[]>>,
+    deleteProject: (id: string) => Promise<boolean>,
 };
 
 export type ProjectFormProps = {
-    projectsList: ProjectProps[];
-    setProjectsList: React.Dispatch<React.SetStateAction<ProjectProps[]>>;
+    projectsList: ProjectProps[],
+    setProjectsList: React.Dispatch<React.SetStateAction<ProjectProps[]>>,
+    createProject: (projectData: ProjectProps) => Promise<void>
 };
 
 // Experience-related props

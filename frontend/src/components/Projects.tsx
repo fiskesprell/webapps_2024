@@ -1,10 +1,10 @@
 // Importer Style
 // import './styles/grid.css';
 import Project from './Project'
-import { ProjectProps, ProjectsProps } from '../types/types'
+import { ProjectsProps } from '../types/types'
 
 export default function Projects(props: ProjectsProps) {
-    const { listOfProjects, setProjectsList } = props;
+    const { listOfProjects, setProjectsList, deleteProject } = props;
 
     const removeCurrentProject = (id: string) => {
       setProjectsList((prevProjectsList) => prevProjectsList.filter((project) => project.id !== id))
@@ -17,8 +17,9 @@ export default function Projects(props: ProjectsProps) {
           : (
             ( listOfProjects.map((project) => (
               <div key={project.id} className="articleDiv">
-                <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} publishedAt={project.publishedAt} tags={project.tags} author={project.author}>
-                  <button onClick={() => removeCurrentProject(project.id)}> Slett Prosjekt </button>
+                <Project id={project.id} title={project.title} description={project.description} repoLink={project.repoLink} publishedAt={project.publishedAt} tags={project.tags}>
+                <button onClick={() => {removeCurrentProject(project.id); deleteProject(project.id);}}>Slett Prosjekt</button>
+
                 </Project>
               </div>
             )))

@@ -3,7 +3,7 @@ import { ProjectProps } from '../types/types'
 import type { PropsWithChildren } from "react";
 
 export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>) {
-    const { children, title="title", description="description", repoLink="repoLink", publishedAt, tags, author} = props;
+    const { children, title="title", description="description", repoLink="repoLink", publishedAt, tags} = props;
 
     return(
         <article className="projectArticle">
@@ -24,7 +24,7 @@ export default function Student(props: Readonly<PropsWithChildren<ProjectProps>>
                     <p>Tags: </p>
                     {tags.map((tag) => (<p className="tags" key={ title + tag}>{tag}</p>))}
             </div>
-            <p className="authorInfo">Author: {author.name} - {author.email}</p>
+            {/*<p className="authorInfo">Author: {author.name} - {author.email}</p>*/}
         </article>
     );
 }

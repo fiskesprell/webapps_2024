@@ -32,9 +32,6 @@ export type HonoEnv = {
 
 // App(hono)
 const app = new Hono<HonoEnv>();
-app.route("/v1/projects", projectController);
-
-app.onError(handleError);
 
 app.use(
   "/*",
@@ -44,6 +41,9 @@ app.use(
   })
 );
 
+app.route("/v1/projects", projectController);
+
+app.onError(handleError);
 
 app.get("/authors", (c) => {
     return c.json(authors)
