@@ -24,11 +24,17 @@ export default function ProjectForm({ projectsList, setProjectsList }: ProjectFo
           repoLink: projectRepoLink,
           publishedAt: new Date(Date.now()),
           tags: tagsArray,
+          authorId: "",
+          author: {
+            id: crypto.randomUUID(),
+            email: "test@test.com",
+            name: "TestMan TestGuy"
+          }
         }
 
         setProjectsList([...projectsList, projectToAddToList]);
 
-        {/* Then reset fields */}
+        // Then reset fields
         setProjectTitle('');
         setProjectDescription('');
         setProjectRepoLink('');

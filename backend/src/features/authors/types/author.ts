@@ -3,3 +3,9 @@ export type Author = {
     email: string;
     name: string;
 };
+
+export type DbAuthor = {
+    id: string;
+    email: string;
+    name: string;
+};
