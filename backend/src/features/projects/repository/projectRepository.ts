@@ -78,12 +78,12 @@ export const createProjectRepository = (db: DB) => {
                 project.published_at,
                 project.tags,
                 project.author_id,
-                project.public ? 1 : 0  // Convert boolean to integer for SQLite
+                project.public ? 1 : 0 
             );
     
             return ResultHandler.success(project.id);
         } catch (error) {
-            console.error('Create project error:', error); // Add this for debugging
+            console.error('Create project error:', error);
             return ResultHandler.failure(error, "INTERNAL_SERVER_ERROR");
         }
     };
