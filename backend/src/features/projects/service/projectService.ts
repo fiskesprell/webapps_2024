@@ -4,9 +4,8 @@ import { validateCreateProject, validateUpdateProject } from "../schema/projectS
 import { canEdit } from "../utils/projectValidator";
 import { createProject } from "../mappers/projectMapper";
 import db from "@/db/db";
-// Ikke funnet ut av enda
+import type { Result } from "@/types/types";
 import { ResultHandler } from "@/lib/result";
-import type { Result } from "@/types";
 
 
 export const createProjectService = (projectRepository: ProjectRepository) => {

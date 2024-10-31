@@ -5,12 +5,31 @@ import { HTTPException } from "hono/http-exception";
 import { User } from "./features/users/types/user";
 import { projects } from "./data/projectData";
 import { authors } from "./data/authorData";
+import { handleError } from "@/lib/error"
+import { ServerEnv } from "./lib/env";
+import { DB } from "./db/db";
+import { Logger } from "pino";
 
 type ContextVariables = {
   user: User | null;
 };
 
-const app = new Hono<{ Variables: ContextVariables }>();
+export type ServiceContext = {
+  db: DB;
+  logger: Logger;
+};
+
+export type HonoEnv = {
+  Bindings: ServerEnv;
+  Variables: {
+    services: ServiceContext;
+  } & ContextVariables;
+};
+
+const app = new Hono<HonoEnv>();
+
+
+app.onError(handleError);
 
 app.use(
   "/*",

@@ -3,8 +3,7 @@ import { AuthorRepository, createAuthorRepository } from "../repository/authorRe
 import type { Author, CreateAuthor, UpdateAuthor } from "../schema/authorSchema";
 import { validateCreateAuthor, validateUpdateAuthor } from "../schema/authorSchema";
 import db from "@/db/db";
-// Ikke funnet ut av enda
-import { Result } from "@/types";
+import type { Result } from "@/types/types";
 import { ResultHandler } from "@/lib/result";
 
 
