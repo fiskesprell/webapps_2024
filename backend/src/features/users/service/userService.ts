@@ -3,8 +3,7 @@ import type { CreateUser, User, UpdateUser } from "../schema/userSchema";
 import { validateCreateUser, validateUpdateUser } from "../schema/userSchema";
 import { createUser } from "../mappers/userMapper";
 import db from "@/db/db";
-// Ikke funnet ut av enda
-import type { Result } from "@/types";
+import type { Result } from "@/types/types";
 import { ResultHandler } from "@/lib/result";
 
 export const createUserService = (userRepository: UserRepository) => {

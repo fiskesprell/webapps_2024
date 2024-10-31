@@ -21,7 +21,7 @@ export const createProjectRepository = (db: DB) => {
             const project = await exist(id);
             if (!project) return ResultHandler.failure("Project not found", "NOT_FOUND");
             const query = db.prepare(
-                "SELECT * FROM projects WHERE id = ? AND user_id = ?"
+                "SELECT * FROM projects WHERE id = ?"
             );
             const data = query.get(id) as DbProject;
             // TODO: validering av project med Zod kan legges til her
